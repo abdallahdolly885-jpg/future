@@ -1,0 +1,783 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Years Ahead ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f8f4ef;
+      --paper: #fffdf9;
+      --text: #55473f;
+      --muted: #9b887c;
+      --accent: #bd8e83;
+      --line: #e9ddd3;
+      --shadow: 0 12px 35px rgba(91, 65, 49, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(ellipse at top left, #f3e7dc 0%, transparent 45%),
+        var(--bg);
+      color: var(--text);
+      font-family: 'Cairo', sans-serif;
+      overflow-x: hidden;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .page {
+      width: min(100% - 32px, 900px);
+      margin: auto;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 0;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 8vw, 78px);
+      line-height: 1.12;
+      font-weight: 400;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .hero-text {
+      max-width: 430px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .heart {
+      color: var(--accent);
+      font-size: 22px;
+      margin-top: 30px;
+      animation: heartbeat 2s infinite;
+    }
+
+    .scroll-hint {
+      margin-top: 55px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    /* INTRO */
+
+    .intro {
+      text-align: center;
+      padding: 50px 0 70px;
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .intro h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(27px, 5vw, 42px);
+      line-height: 1.4;
+    }
+
+    .intro p {
+      max-width: 490px;
+      margin: 20px auto 0;
+      color: var(--muted);
+      line-height: 2;
+      font-size: 13px;
+    }
+
+    /* TIMELINE */
+
+    .timeline {
+      position: relative;
+      padding: 15px 0 70px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: var(--line);
+      transform: translateX(-50%);
+    }
+
+    .memory-card {
+      position: relative;
+      width: calc(50% - 36px);
+      margin-bottom: 85px;
+      background: var(--paper);
+      border: 1px solid rgba(233, 221, 211, 0.9);
+      border-radius: 180px 180px 16px 16px;
+      padding: 13px 13px 25px;
+      box-shadow: var(--shadow);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .memory-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px rgba(91, 65, 49, 0.12);
+    }
+
+    .memory-card:nth-child(odd) {
+      margin-right: auto;
+    }
+
+    .memory-card:nth-child(even) {
+      margin-left: auto;
+    }
+
+    .memory-card::before {
+      content: "";
+      position: absolute;
+      top: 35px;
+      width: 9px;
+      height: 9px;
+      background: var(--accent);
+      border: 4px solid var(--bg);
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .memory-card:nth-child(odd)::before {
+      right: -44px;
+    }
+
+    .memory-card:nth-child(even)::before {
+      left: -44px;
+    }
+
+    .age-label {
+      text-align: center;
+      padding: 15px 0 12px;
+    }
+
+    .age-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 35px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text);
+    }
+
+    .age-caption {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 5px;
+    }
+
+    /* IMAGE AREA */
+
+    .image-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 160px 160px 9px 9px;
+      background: #eee4da;
+      position: relative;
+    }
+
+    .image-wrap img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.7s ease;
+    }
+
+    .memory-card:hover .image-wrap img {
+      transform: scale(1.035);
+    }
+
+    .photo-note {
+      text-align: center;
+      padding: 17px 8px 0;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* ENDING */
+
+    .ending {
+      text-align: center;
+      padding: 60px 0 100px;
+    }
+
+    .ending-heart {
+      color: var(--accent);
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
+    .ending h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 6vw, 55px);
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .ending h2 span {
+      display: block;
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .ending p {
+      max-width: 400px;
+      margin: 23px auto;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 2.2;
+    }
+
+    .signature {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-style: italic;
+      margin-top: 28px;
+    }
+
+    /* MUSIC BUTTON */
+
+    .music-button {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 10;
+      width: 49px;
+      height: 49px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--paper);
+      color: var(--accent);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      transition: transform 0.3s ease;
+    }
+
+    .music-button:hover {
+      transform: scale(1.07);
+    }
+
+    .music-button.playing {
+      animation: heartbeat 2s infinite;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--line);
+      text-align: center;
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    /* ANIMATIONS */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+      .page {
+        width: calc(100% - 28px);
+      }
+
+      .hero {
+        min-height: 82vh;
+      }
+
+      .timeline {
+        padding-left: 24px;
+      }
+
+      .timeline::before {
+        left: 8px;
+      }
+
+      .memory-card {
+        width: 100%;
+        margin: 0 0 50px !important;
+      }
+
+      .memory-card::before,
+      .memory-card:nth-child(odd)::before,
+      .memory-card:nth-child(even)::before {
+        left: -24px;
+        right: auto;
+        top: 30px;
+      }
+
+      .age-number {
+        font-size: 32px;
+      }
+
+      .intro {
+        padding: 30px 0 55px;
+      }
+
+      .ending {
+        padding-bottom: 80px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero page">
+      <div class="eyebrow">A little dream of ours</div>
+
+      <h1>
+        We spent so much time remembering where we started… we forgot to imagine how far we could go
+      </h1>
+
+      <p class="hero-text">
+        If life is kind enough to let us grow old together,
+        this is how I imagine our story might look.
+      </p>
+
+      <div class="heart">♡</div>
+
+      <div class="scroll-hint">Scroll to our future ↓</div>
+    </section>
+
+
+    <!-- INTRO -->
+
+    <section class="intro page reveal">
+      <div class="section-label">Our future album</div>
+
+      <h2>
+        Same two souls.<br>
+        A thousand little tomorrows.
+      </h2>
+
+      <p>
+        From the days when we're still figuring everything out
+        to the days when our whole world is made of memories.
+        I hope there's always an us.
+      </p>
+    </section>
+
+
+    <!--
+      ===================================================
+      EDIT YOUR PHOTOS HERE
+      Change ONLY the image path inside src="..."
+      Example: src="assets/my-new-photo.jpg"
+
+      Keep your photos inside the assets folder.
+      You can also use PNG or WebP file extensions.
+      ===================================================
+    -->
+
+
+    <section class="timeline page">
+
+
+      <!-- AGE 25: CHANGE THE IMAGE IN THIS HTML TAG -->
+
+      <article class="memory-card reveal">
+        <div class="age-label">
+          <div class="age-number">25</div>
+          <div class="age-caption">Years Young</div>
+        </div>
+
+        <div class="image-wrap">
+          <img
+            src="./20.jfif"
+            alt="Us at 25 years old"
+            loading="lazy"
+          >
+        </div>
+
+        <p class="photo-note">
+          Still young, still learning, still choosing you.
+        </p>
+      </article>
+
+
+      <!-- AGE 35 -->
+
+      <article class="memory-card reveal">
+        <div class="age-label">
+          <div class="age-number">35</div>
+          <div class="age-caption">Building Our World</div>
+        </div>
+
+        <div class="image-wrap">
+          <img
+            src="./30.jfif"
+            alt="Us at 35 years old"
+            loading="lazy"
+          >
+        </div>
+
+        <p class="photo-note">
+          A home, a thousand stories, and you beside me.
+        </p>
+      </article>
+
+
+      <!-- AGE 45 -->
+
+      <article class="memory-card reveal">
+        <div class="age-label">
+          <div class="age-number">45</div>
+          <div class="age-caption">Our Little Universe</div>
+        </div>
+
+        <div class="image-wrap">
+          <img
+            src="./40.jfif"
+            alt="Us at 45 years old"
+            loading="lazy"
+          >
+        </div>
+
+        <p class="photo-note">
+          We made a life out of all our ordinary days.
+        </p>
+      </article>
+
+
+      <!-- AGE 55 -->
+
+      <article class="memory-card reveal">
+        <div class="age-label">
+          <div class="age-number">55</div>
+          <div class="age-caption">Still Us</div>
+        </div>
+
+        <div class="image-wrap">
+          <img
+            src="./50.jfif"
+            alt="Us at 55 years old"
+            loading="lazy"
+          >
+        </div>
+
+        <p class="photo-note">
+          The years changed our faces, never our little things.
+        </p>
+      </article>
+
+
+      <!-- AGE 65 -->
+
+      <article class="memory-card reveal">
+        <div class="age-label">
+          <div class="age-number">65</div>
+          <div class="age-caption">A Lifetime Together</div>
+        </div>
+
+        <div class="image-wrap">
+          <img
+            src="./60.jfif"
+            alt="Us at 65 years old"
+            loading="lazy"
+          >
+        </div>
+
+        <p class="photo-note">
+          More memories than we could ever count.
+        </p>
+      </article>
+
+
+      <!-- AGE 75 -->
+
+      <article class="memory-card reveal">
+        <div class="age-label">
+          <div class="age-number">75</div>
+          <div class="age-caption">Our Golden Days</div>
+        </div>
+
+        <div class="image-wrap">
+          <img
+            src="./70.jfif"
+            alt="Us at 75 years old"
+            loading="lazy"
+          >
+        </div>
+
+        <p class="photo-note">
+          Slow mornings, familiar smiles, and your hand in mine.
+        </p>
+      </article>
+
+
+      <!-- AGE 85 -->
+
+      <article class="memory-card reveal">
+        <div class="age-label">
+          <div class="age-number">85</div>
+          <div class="age-caption">Still Holding Hands</div>
+        </div>
+
+        <div class="image-wrap">
+          <img
+            src="./80.jfif"
+            alt="Us at 85 years old"
+            loading="lazy"
+          >
+        </div>
+
+        <p class="photo-note">
+          If I could do it all again, I'd still find you.
+        </p>
+      </article>
+
+
+      <!-- AGE 95 -->
+
+      <article class="memory-card reveal">
+        <div class="age-label">
+          <div class="age-number">95</div>
+          <div class="age-caption">A Thousand Memories</div>
+        </div>
+
+        <div class="image-wrap">
+          <img
+            src="./90.jfif"
+            alt="Us at 95 years old"
+            loading="lazy"
+          >
+        </div>
+
+        <p class="photo-note">
+          Our favorite stories will always begin with us.
+        </p>
+      </article>
+
+
+      <!-- AGE 105 -->
+
+      <article class="memory-card reveal">
+        <div class="age-label">
+          <div class="age-number">105</div>
+          <div class="age-caption">Until The Very End</div>
+        </div>
+
+        <div class="image-wrap">
+          <img
+            src="./100.jfif"
+            alt="Us at 105 years old"
+            loading="lazy"
+          >
+        </div>
+
+        <p class="photo-note">
+          Every version of forever, I'd want it with you.
+        </p>
+      </article>
+
+
+    </section>
+
+
+    <!-- ENDING -->
+
+    <section class="ending page reveal">
+
+      <div class="ending-heart">♡</div>
+
+      <h2>
+        No matter the age,
+        <span>it's always you.</span>
+      </h2>
+
+      <p>
+        These are only pictures of a future we can imagine.
+        But if I get to share even a little of it with you,
+        that would mean the world to me.
+      </p>
+
+      <div class="signature">
+        You, me, and all the years ahead.
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- MUSIC -->
+
+  <!-- Change the music file path here in the HTML -->
+  <audio id="backgroundMusic" loop preload="none">
+    <source src="./Billie Eilish - BIRDS OF A FEATHER (Official Lyric Video).mp3" type="audio/mpeg">
+  </audio>
+
+  <button
+    class="music-button"
+    id="musicButton"
+    type="button"
+    aria-label="Play or pause music"
+    title="Play or pause music"
+  >
+    ♫
+  </button>
+
+
+  <!-- JAVASCRIPT: BEHAVIOR ONLY; NO IMAGE PATHS HERE -->
+
+  <script>
+    // Scroll reveal animations
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    } else {
+      revealElements.forEach((element) => {
+        element.classList.add("visible");
+      });
+    }
+
+
+    // Music player
+
+    const music = document.getElementById("backgroundMusic");
+    const musicButton = document.getElementById("musicButton");
+
+    musicButton.addEventListener("click", async () => {
+      if (music.paused) {
+        try {
+          await music.play();
+          musicButton.classList.add("playing");
+          musicButton.innerHTML = "♫";
+          musicButton.setAttribute("aria-label", "Pause music");
+        } catch (error) {
+          console.error("Music could not play:", error);
+        }
+      } else {
+        music.pause();
+        musicButton.classList.remove("playing");
+        musicButton.innerHTML = "♫";
+        musicButton.setAttribute("aria-label", "Play music");
+      }
+    });
+
+
+    // Add a friendly message in the console for missing photos
+
+    document.querySelectorAll(".image-wrap img").forEach((image) => {
+      image.addEventListener("error", () => {
+        console.warn("Check this image path:", image.getAttribute("src"));
+      });
+    });
+  </script>
+
+</body>
+</html>
